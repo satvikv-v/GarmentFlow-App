@@ -1,0 +1,64 @@
+# Secrets
+.env
+.env.*
+!.env.example
+backend/.env
+backend/**/.env
+
+# Python
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+
+# ML
+*.pkl
+*.joblib
+
+# Node
+node_modules/
+**/node_modules/
+dist/
+build/
+
+# Logs
+*.log
+*.tmp
+
+# Generated files
+api_results.json
+api_results.txt
+*.zip
+backend/garmentflow_backend/
+
+# Test / debug scripts
+test_api.py
+test_api_json.py
+verify_seed.py
+backend/test_*.py
+frontend/check_images.cjs
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Frontend development / patch scripts
+frontend/check_urls.py
+frontend/copy_thumbs.py
+frontend/fix_*.py
+frontend/patch_*.py
+frontend/prepare_assets.py
+frontend/regex_fix.py
+frontend/rename_watermarks.py
+frontend/replace_*.py
+frontend/update_*.py

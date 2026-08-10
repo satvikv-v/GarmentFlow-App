@@ -1,0 +1,349 @@
+/**
+ * GarmentFlow Design System — Light Edition
+ *
+ * Accent color options (pick one; change the three --color-accent* lines below):
+ *   A — Slate Blue   : #3D52A0 / #4A63BE / rgba(61,82,160,0.08)
+ *   B — Terracotta   : #C0644D / #D0704B / rgba(192,100,77,0.08)   ← lean
+ *   C — Forest Green : #3A7D5F / #459770 / rgba(58,125,95,0.08)
+ *
+ * Currently set to Option B (Terracotta).
+ * To switch: replace the three accent lines only — everything else stays.
+ */
+
+@import "tailwindcss";
+
+/* ── Google Fonts (Inter already loaded in index.html) ──────────────────── */
+
+@theme {
+  /* ── Backgrounds — warm white / light neutral ───────────────────────── */
+  --color-bg-base:     #F7F6F3;   /* off-white, the main app canvas            */
+  --color-bg-surface:  #FFFFFF;   /* cards, panels, drawers                    */
+  --color-bg-elevated: #F2F1EE;   /* table header tints, nested sections       */
+  --color-bg-overlay:  #ECEAE6;   /* hover fills, subtle secondary areas       */
+
+  /* ── Borders — light and subtle ─────────────────────────────────────── */
+  --color-border:        #E2DFD9;   /* primary border (cards, inputs, table)   */
+  --color-border-subtle: #EAE8E3;   /* interior dividers, row separators       */
+
+  /* ── Text ────────────────────────────────────────────────────────────── */
+  --color-text-primary:   #1A1A1A;  /* headings, primary values                */
+  --color-text-secondary: #595550;  /* body text, labels                       */
+  --color-text-muted:     #9A958E;  /* placeholders, metadata, hints           */
+  --color-text-disabled:  #C4C0BB;  /* inactive controls                       */
+
+  /* ── Accent — OPTION B: Terracotta (warm, domain-appropriate) ──────── */
+  --color-accent:        #C0644D;
+  --color-accent-hover:  #D0704B;
+  --color-accent-subtle: rgba(192,100,77,0.09);
+  --color-accent-border: rgba(192,100,77,0.25);
+
+  /* ── Status — muted / desaturated, NOT neon ─────────────────────────── */
+  --color-success:        #2E7D54;  /* dark muted green                        */
+  --color-success-subtle: rgba(46,125,84,0.09);
+  --color-success-border: rgba(46,125,84,0.22);
+
+  --color-warning:        #B06B10;  /* dark amber, not neon yellow             */
+  --color-warning-subtle: rgba(176,107,16,0.09);
+  --color-warning-border: rgba(176,107,16,0.22);
+
+  --color-danger:        #C0392B;   /* dark muted red                          */
+  --color-danger-subtle: rgba(192,57,43,0.08);
+  --color-danger-border: rgba(192,57,43,0.22);
+
+  --color-info:        #1F5EA8;     /* dark muted blue                         */
+  --color-info-subtle: rgba(31,94,168,0.08);
+  --color-info-border: rgba(31,94,168,0.22);
+
+  --color-neutral:        #6B6660;
+  --color-neutral-subtle: rgba(107,102,96,0.08);
+  --color-neutral-border: rgba(107,102,96,0.22);
+
+  /* ── Typography ─────────────────────────────────────────────────────── */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Scale (use these class equivalents for consistent sizing):
+     --text-page-title   : 1.125rem / 18px  font-semibold   page h1
+     --text-section-head : 0.875rem / 14px  font-semibold   card titles
+     --text-body         : 0.875rem / 14px  font-normal     table rows, content
+     --text-label        : 0.75rem  / 12px  font-medium     form labels, th
+     --text-caption      : 0.6875rem/ 11px  font-normal     metadata, hints
+     --text-stat         : 1.5rem   / 24px  font-semibold   KPI numbers
+  */
+
+  /* ── Geometry ────────────────────────────────────────────────────────── */
+  --radius-sm: 5px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 12px;
+
+  /* ── Shadows — soft, not heavy ──────────────────────────────────────── */
+  --shadow-card:  0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-panel: 0 4px 16px rgba(0,0,0,0.07), 0 1px 4px rgba(0,0,0,0.04);
+}
+
+/* ── Base reset ─────────────────────────────────────────────────────────── */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    background-color: var(--color-bg-base);
+    color: var(--color-text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body { margin: 0; }
+
+  /* Subtle, light-mode scrollbar */
+  ::-webkit-scrollbar       { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--color-text-muted); }
+}
+
+/* ── Typography utilities ───────────────────────────────────────────────── */
+@layer utilities {
+  /* Page-level headings */
+  .text-page-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--color-text-primary);
+  }
+
+  /* Section / card headings */
+  .text-section-head {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+
+  /* Table / body text */
+  .text-body {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--color-text-secondary);
+  }
+
+  /* Form labels, table headers */
+  .text-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+  }
+
+  /* Metadata, hints, captions */
+  .text-caption {
+    font-size: 0.6875rem;
+    font-weight: 400;
+    color: var(--color-text-muted);
+  }
+
+  /* KPI / stat numbers */
+  .text-stat {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ── Cards ──────────────────────────────────────────────────────────── */
+  .card {
+    background-color: var(--color-bg-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+  }
+
+  /* ── Buttons ─────────────────────────────────────────────────────────── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
+    border-radius: var(--radius-md);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+    white-space: nowrap;
+    border: 1px solid transparent;
+  }
+
+  .btn-sm { padding: 0.375rem 0.75rem; font-size: 0.75rem; }
+  .btn-md { padding: 0.5rem 1rem; }
+  .btn-lg { padding: 0.625rem 1.25rem; font-size: 0.875rem; }
+
+  /* Primary */
+  .btn-primary {
+    background-color: var(--color-accent);
+    color: #fff;
+    border-color: var(--color-accent);
+    font-weight: 600;
+    padding: 0.625rem 1.25rem; /* Larger padding for visual weight */
+    box-shadow: 0 4px 12px rgba(192, 100, 77, 0.25); /* Subtle tinted shadow */
+  }
+  .btn-primary:hover  { 
+    background-color: var(--color-accent-hover); 
+    border-color: var(--color-accent-hover); 
+    box-shadow: 0 6px 16px rgba(192, 100, 77, 0.3);
+    transform: translateY(-1px);
+  }
+  .btn-primary:active { 
+    opacity: 0.92; 
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(192, 100, 77, 0.2);
+  }
+
+  /* Secondary (outline) */
+  .btn-secondary {
+    background-color: var(--color-bg-surface);
+    color: var(--color-text-secondary);
+    border-color: var(--color-border);
+  }
+  .btn-secondary:hover  { background-color: var(--color-bg-elevated); }
+  .btn-secondary:active { background-color: var(--color-bg-overlay); }
+
+  /* Ghost (no border) */
+  .btn-ghost {
+    background-color: transparent;
+    color: var(--color-text-secondary);
+    border-color: transparent;
+  }
+  .btn-ghost:hover  { background-color: var(--color-bg-elevated); }
+
+  /* Destructive */
+  .btn-destructive {
+    background-color: var(--color-danger);
+    color: #fff;
+    border-color: var(--color-danger);
+  }
+  .btn-destructive:hover  { opacity: 0.9; }
+
+  /* Disabled state (apply disabled: prefix or this class) */
+  .btn:disabled, .btn[disabled] {
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  
+  .btn-primary:disabled, .btn-primary[disabled] {
+    background-color: var(--color-bg-elevated);
+    border-color: var(--color-border);
+    color: var(--color-text-disabled);
+    box-shadow: none;
+    opacity: 1; /* override the generic 0.45 opacity */
+  }
+
+  /* ── Badges / status pills ──────────────────────────────────────────── */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.1875rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    white-space: nowrap;
+    border: 1px solid transparent;
+    line-height: 1.4;
+  }
+
+  .badge-success    { color: var(--color-success);  background: var(--color-success-subtle);  border-color: var(--color-success-border); }
+  .badge-warning    { color: var(--color-warning);  background: var(--color-warning-subtle);  border-color: var(--color-warning-border); }
+  .badge-danger     { color: var(--color-danger);   background: var(--color-danger-subtle);   border-color: var(--color-danger-border); }
+  .badge-info       { color: var(--color-info);     background: var(--color-info-subtle);     border-color: var(--color-info-border); }
+  .badge-neutral    { color: var(--color-neutral);  background: var(--color-neutral-subtle);  border-color: var(--color-neutral-border); }
+  .badge-accent     { color: var(--color-accent);   background: var(--color-accent-subtle);   border-color: var(--color-accent-border); }
+
+  /* ── Table primitives ───────────────────────────────────────────────── */
+  .table-container {
+    background-color: var(--color-bg-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+  }
+
+  .table-th {
+    padding: 0.625rem 1rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-text-muted);
+    background-color: var(--color-bg-elevated);
+    border-bottom: 1px solid var(--color-border);
+    white-space: nowrap;
+  }
+
+  .table-td {
+    padding: 0.625rem 1rem;
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary);
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+
+  .table-row-hover:hover { background-color: var(--color-bg-elevated); }
+
+  /* ── Form inputs ────────────────────────────────────────────────────── */
+  .input {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    background-color: var(--color-bg-surface);
+    color: var(--color-text-primary);
+    font-size: 0.875rem;
+    font-family: var(--font-sans);
+    outline: none;
+    transition: border-color 120ms ease, box-shadow 120ms ease;
+  }
+  .input::placeholder { color: var(--color-text-muted); }
+  .input:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px var(--color-accent-subtle);
+  }
+  .input:disabled { background-color: var(--color-bg-elevated); opacity: 0.6; cursor: not-allowed; }
+  .input-error { border-color: var(--color-danger-border) !important; }
+  .input-error:focus { box-shadow: 0 0 0 3px var(--color-danger-subtle); }
+
+  /* select inherits .input styles */
+  select.input { cursor: pointer; }
+
+  /* ── Drawer / Modal backdrop ────────────────────────────────────────── */
+  .drawer-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(1px);
+    z-index: 40;
+  }
+
+  .drawer-panel {
+    background-color: var(--color-bg-surface);
+    border-left: 1px solid var(--color-border);
+    box-shadow: var(--shadow-panel);
+  }
+
+  .modal-panel {
+    background-color: var(--color-bg-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-panel);
+  }
+
+  /* ── Sidebar nav active/hover states ────────────────────────────────── */
+  .nav-link-active {
+    background-color: var(--color-accent-subtle);
+    color: var(--color-accent);
+    font-weight: 500;
+  }
+  .nav-link-hover:hover {
+    background-color: var(--color-bg-elevated);
+    color: var(--color-text-primary);
+  }
+}
