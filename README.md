@@ -468,8 +468,7 @@ GarmentFlow uses a clean, modern operational interface that combines factory man
 
 ### Orders & Detail Views
 
-> Screenshot coming soon.
-
+![GarmentFlow Orders](frontend/public/screenshots/orders.png)
 ---
 
 ## Security & Configuration
