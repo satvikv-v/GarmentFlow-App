@@ -456,7 +456,7 @@ GarmentFlow uses a clean, modern operational interface that combines factory man
 
 ### Production
 
-> Screenshot coming soon.
+![GarmentFlow Production](frontend/public/screenshots/production.png)
 
 ### Inventory
 
