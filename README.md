@@ -464,7 +464,7 @@ GarmentFlow uses a clean, modern operational interface that combines factory man
 
 ### Recommendations
 
-> Screenshot coming soon.
+![GarmentFlow Recommendations](frontend/public/screenshots/recommendations.png)
 
 ### Orders & Detail Views
 
