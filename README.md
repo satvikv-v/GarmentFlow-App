@@ -477,6 +477,10 @@ GarmentFlow uses a clean, modern operational interface that combines factory man
 ### Suppliers
 
 ![GarmentFlow Suppliers](frontend/public/screenshots/suppliers.png)
+
+### Dispatch
+
+![GarmentFlow Dispatch](frontend/public/screenshots/dispatch.png)
 ---
 
 ## Security & Configuration
