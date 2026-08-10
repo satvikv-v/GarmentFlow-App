@@ -448,11 +448,11 @@ The frontend communicates with the FastAPI backend through the configured API en
 
 ## Screenshots
 
-GarmentFlow uses a premium dark-mode interface combining operational data with editorial-style garment and factory imagery.
+GarmentFlow uses a clean, modern operational interface that combines factory management workflows with editorial-style garment and manufacturing imagery.
 
 ### Dashboard
 
-> Screenshot coming soon.
+![GarmentFlow Dashboard](frontend/public/screenshots/dashboard.png)
 
 ### Production
 
@@ -547,7 +547,7 @@ The current version of GarmentFlow establishes the core factory-management workf
 * AI-assisted delay prediction
 * Inventory forecasting
 * Constraint-aware production recommendations
-* Premium dark-mode operational interface
+* Clean, modern operational interface with integrated garment and factory imagery
 * Editorial garment and factory imagery integrated into the application
 * Database migrations managed with Alembic
 * Environment-based configuration for sensitive credentials
