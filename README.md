@@ -460,7 +460,7 @@ GarmentFlow uses a clean, modern operational interface that combines factory man
 
 ### Inventory
 
-> Screenshot coming soon.
+![GarmentFlow Inventory](frontend/public/screenshots/inventory.png)
 
 ### Recommendations
 
